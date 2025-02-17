@@ -99,7 +99,12 @@ public class HtmlProcess {
                 }
             }
 
+            // If malformed = true, returns the message
+            if (malformed) {
+                return "malformed HTML";
+            }
 
+            return  textFound;
 
         }
     }
