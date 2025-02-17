@@ -1,10 +1,13 @@
 import java.io.IOException;
+import java.util.Scanner;
 
 public class HtmlAnalyzer {
     public static void main(String[] args) {
 
+        Scanner scanner = new Scanner(System.in);
+
         try {
-            String url = "http://hiring.axreng.com/internship/example1.html";
+            String url = scanner.next();
             String htmlContent = HtmlProcess.fetchHTML(url);
             String resultText = HtmlProcess.readHTML(htmlContent);
 
