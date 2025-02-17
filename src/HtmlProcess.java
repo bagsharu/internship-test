@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Stack;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class HtmlProcess {
@@ -59,5 +60,17 @@ public class HtmlProcess {
         // With the usage of regular expressions we can identify the multiple tags and help the program identify it.
         Pattern openTag = Pattern.compile("<(\\w+)>");
         Pattern closeTag = Pattern.compile("</(\\w+)>");
+
+        // This loop goes through the entire HTML, ignoring blank spaces
+        for (String line : linesHTML) {
+            line = line.trim();
+
+            if(line.isEmpty())
+                continue;
+
+            // The Matcher objects compare the tags to the regular expressions
+            Matcher openMatcher = openTag.matcher(line);
+            Matcher closeMatcher = closeTag.matcher(line);
+        }
     }
 }
