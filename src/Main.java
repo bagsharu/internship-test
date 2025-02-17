@@ -10,7 +10,7 @@ public class Main {
 
             System.out.println(resultText);
         } catch (IOException e) {
-            System.out.println("Error acessing the URL");
+            System.out.println("URL connection error");
         }
     }
 }
