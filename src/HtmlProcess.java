@@ -2,13 +2,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.Stack;
 
 public class HtmlProcess {
 
     // This class is responsible for manipulating the HTML from the user
 
     // This method recieves an URL and
-    public static  String fetchHTML(String urlRecieved) throws IOException {
+    public static String fetchHTML(String urlRecieved) throws IOException {
 
         // This object will be used to store the HTML structure
         StringBuilder contentHTML = new StringBuilder();
@@ -37,5 +38,21 @@ public class HtmlProcess {
     // This method will read the HTML and find the text within the deepest level of the given HTML
     public static String readHTML(String htmlRecieved) {
 
+        // These variables are used in the process of reading the HTML and finding the text
+
+        // transforms the html in string format into an array separating the lines into indexes
+        String[] linesHTML = htmlRecieved.split("\n");
+
+        // This stack is used to organize the multiple lines of the HTML
+        Stack<String> stack = new Stack<>();
+
+        // These "depth" variables control the level of the html, it's helpful for managing which text will be output
+        // The values will be changed as the program reads through the various levels of the html
+        int currentDepth = 0;
+        int maxDepth = -1;
+
+        // These are used to store the text found and control if there's a malformation in the html structure
+        String textFound = null;
+        boolean malformed = false;
     }
 }
