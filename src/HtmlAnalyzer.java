@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-public class Main {
+public class HtmlAnalyzer {
     public static void main(String[] args) {
 
         try {
