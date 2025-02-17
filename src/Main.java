@@ -5,7 +5,10 @@ public class Main {
 
         try {
             String url = "http://hiring.axreng.com/internship/example1.html";
-            System.out.println(HtmlProcess.fetchHTML(url));
+            String htmlContent = HtmlProcess.fetchHTML(url);
+            String resultText = HtmlProcess.readHTML(htmlContent);
+
+            System.out.println(resultText);
         } catch (IOException e) {
             System.out.println("Error acessing the URL");
         }
