@@ -33,4 +33,9 @@ public class HtmlProcess {
         return contentHTML.toString();
 
     }
+
+    // This method will read the HTML and find the text within the deepest level of the given HTML
+    public static String readHTML(String htmlRecieved) {
+
+    }
 }
