@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Stack;
+import java.util.regex.Pattern;
 
 public class HtmlProcess {
 
@@ -54,5 +55,9 @@ public class HtmlProcess {
         // These are used to store the text found and control if there's a malformation in the html structure
         String textFound = null;
         boolean malformed = false;
+
+        // With the usage of regular expressions we can identify the multiple tags and help the program identify it.
+        Pattern openTag = Pattern.compile("<(\\w+)>");
+        Pattern closeTag = Pattern.compile("</(\\w+)>");
     }
 }
