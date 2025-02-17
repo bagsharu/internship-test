@@ -71,6 +71,36 @@ public class HtmlProcess {
             // The Matcher objects compare the tags to the regular expressions
             Matcher openMatcher = openTag.matcher(line);
             Matcher closeMatcher = closeTag.matcher(line);
+
+            // This checks if there's an open tag, if it's true, the tag is pushed into the stack and the depth is increaed
+            if (openMatcher.find()) {
+                stack.push(openMatcher.group(1));
+                currentDepth++;
+            }
+            // If there's a close Tag, it's compared to the open Tag, if there's a match, it will consider the tag closed and removed from the stack
+            else if (closeMatcher.find()) {
+                if (!stack.isEmpty() && stack.peek().equals(closeMatcher.group(1))) {
+                    // Tag is removed from the stack since it's closed properly
+                    stack.pop();
+                    // Decrease the depth because the tags were closed
+                    currentDepth--;
+                } else {
+                    // If there's no matching tags, the HTML is considered malformed
+                    malformed = true;
+                    break;
+                }
+            }
+
+            else {
+                // If the line is not a tag, it's a text.
+                if (currentDepth > maxDepth) {
+                    maxDepth = currentDepth;
+                    textFound = line;
+                }
+            }
+
+
+
         }
     }
 }
