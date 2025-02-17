@@ -104,8 +104,8 @@ public class HtmlProcess {
                 return "malformed HTML";
             }
 
-            return  textFound;
-
         }
+
+        return  textFound;
     }
 }
